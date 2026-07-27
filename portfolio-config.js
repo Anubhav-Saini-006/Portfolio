@@ -14,7 +14,7 @@ const PORTFOLIO_DATA = {
     subtitle: "I'm Anubhav Saini",
     role: "Full Stack Developer & AI Enthusiast",
     bio: "I am a B.Tech IT student at IIIT Sonepat with a deep passion for web development, Agentic AI, and workflow automation. I specialize in building high-performance web applications, intelligent agents, and interactive software.",
-    profileImage: "assets/images/profile.png",
+    profileImage: "assets/images/Profile.png",
     resumeUrl: "assets/Anubhav_Saini_Resume.pdf",
     ctaText: "Got a project?",
     ctaLink: "#contact",
