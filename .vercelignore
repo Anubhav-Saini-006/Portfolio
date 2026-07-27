@@ -1,0 +1,14 @@
+# Vercel Ignore File
+# Files listed here are NOT uploaded to Vercel during deployment
+
+# Local development server (not needed on Vercel)
+server.js
+
+# Local database (not needed on Vercel)
+database/
+
+# Old API folder (no longer needed)
+api/
+
+# Node modules if any
+node_modules/
