@@ -56,6 +56,15 @@ const PORTFOLIO_DATA = {
   // --- PROJECTS LIST ---
   projects: [
     {
+      id: "running-territory",
+      title: "Running Territory",
+      tags: ["React", "Express", "MongoDB", "Leaflet", "OpenStreetMap"],
+      description: "Running Territory is a web-based running game that turns real-world runs into territory exploration. Track your route using GPS and claim the areas you run through. Compete with nearby runners through distance, territory, and leaderboard rankings. Built with React, Express, MongoDB, Leaflet, and OpenStreetMap.",
+      githubUrl: "https://github.com/Anubhav-Saini-006/Running-Territory",
+      liveUrl: "https://running-territory-eight.vercel.app/login",
+      image: "assets/images/running-territory.png"
+    },
+    {
       id: "n8n-project",
       title: "Lead Generation System with N8N",
       tags: ["N8N", "Javascript"],

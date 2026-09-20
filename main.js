@@ -21,6 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderPortfolio(data) {
   if (!data) return;
 
+  // Update resume button if provided in config
+  if (data.personal && data.personal.resumeUrl) {
+    const resumeBtn = document.getElementById('resume-button');
+    if (resumeBtn) {
+      resumeBtn.href = data.personal.resumeUrl;
+    }
+  }
+
   // Render Projects Stack from Config
   if (data.projects && data.projects.length > 0) {
     const projectsContainer = document.getElementById('projects-container');
@@ -28,14 +36,17 @@ function renderPortfolio(data) {
       projectsContainer.innerHTML = data.projects.map((project, idx) => {
         const isReverse = idx % 2 === 1 ? 'reverse' : '';
 
-        // Handle Action Buttons (Supports multiple githubLinks, single githubUrl, or none)
+        // Handle Action Buttons (Supports liveUrl, multiple githubLinks, single githubUrl, or none)
         let actionsHtml = '';
+        if (project.liveUrl && project.liveUrl.trim() !== '') {
+          actionsHtml += `<a href="${project.liveUrl}" class="btn btn-primary" target="_blank" rel="noopener">Live Demo</a>`;
+        }
         if (project.githubLinks && Array.isArray(project.githubLinks)) {
-          actionsHtml = project.githubLinks.map(link =>
-            `<a href="${link.url}" class="btn btn-primary" target="_blank" rel="noopener">${escapeHtml(link.text)}</a>`
+          actionsHtml += project.githubLinks.map((link, i) =>
+            `<a href="${link.url}" class="btn ${i === 0 && !project.liveUrl ? 'btn-primary' : 'btn-outline'}" target="_blank" rel="noopener">${escapeHtml(link.text)}</a>`
           ).join('');
         } else if (project.githubUrl && project.githubUrl.trim() !== '') {
-          actionsHtml = `<a href="${project.githubUrl}" class="btn btn-primary" target="_blank" rel="noopener">View Github</a>`;
+          actionsHtml += `<a href="${project.githubUrl}" class="btn ${project.liveUrl ? 'btn-outline' : 'btn-primary'}" target="_blank" rel="noopener">View Github</a>`;
         }
 
         // Handle Preview Frame (Supports dual images, single image, or code snippet)
